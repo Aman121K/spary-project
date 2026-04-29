@@ -1,0 +1,1066 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sparky Shop - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                red: "#a4161a",
+                redSoft: "#ff8e91",
+                dark: "#1b1616",
+                text: "#666464",
+                line: "#dddddd",
+                light: "#f7f7f7",
+                green: "#147c4b",
+                chip: "#ac373b",
+              },
+            },
+            boxShadow: {
+              soft: "0 10px 30px rgba(0, 0, 0, 0.06)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --container: 1300px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: #1b1616;
+        background: #ffffff;
+        overflow-x: hidden;
+      }
+
+      .container-figma {
+        width: min(var(--container), calc(100vw - 32px));
+        margin-inline: auto;
+      }
+      .section-container {
+        width: 100%;
+      }
+      .section-inner {
+        width: min(var(--container), calc(100vw - 32px));
+        margin-inline: auto;
+      }
+
+      .outline-red {
+        color: #fff7f7;
+        -webkit-text-stroke: 1px #a4161a;
+      }
+
+      .section-kicker {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+
+      .news-text,
+      .body-16 {
+        font-size: 16px;
+        line-height: 25px;
+        letter-spacing: 0.5px;
+      }
+
+      .title-24 {
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: 1px;
+        font-weight: 700;
+        text-transform: capitalize;
+      }
+
+      .button-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0;
+      }
+
+      .button-pill .label {
+        height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 20px;
+        border-radius: 999px;
+        background: #a4161a;
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+      }
+
+      .button-pill.white .label {
+        background: white;
+        color: #a4161a;
+      }
+
+      .rounded-arrow {
+        width: 44px;
+        height: 44px;
+        flex: none;
+      }
+
+      .logo-r {
+        width: 11px;
+        height: 11px;
+        border: 1px solid #a4161a;
+        border-radius: 5.5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #a4161a;
+        font-size: 8px;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      @media (max-width: 1100px) {
+        .section-kicker {
+          font-size: 34px;
+          letter-spacing: 2px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        :root {
+          --container: 100vw;
+        }
+
+        .container-figma {
+          width: calc(100vw - 20px);
+        }
+
+        .mobile-logo-wrap img {
+          max-width: 220px;
+          height: 24px;
+          width: auto;
+        }
+
+        .mobile-wordmark {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border: 2px solid #a4161a;
+          padding: 4px 14px 5px;
+          color: #a4161a;
+          font-size: 18px;
+          font-weight: 800;
+          line-height: 1;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+
+        .section-kicker {
+          font-size: 24px;
+          letter-spacing: 1px;
+          line-height: 1.05;
+        }
+
+        .title-24 {
+          font-size: 18px;
+          letter-spacing: 0.3px;
+        }
+
+        .body-16,
+        .news-text {
+          font-size: 12px;
+          line-height: 18px;
+          letter-spacing: 0.2px;
+        }
+
+        .rounded-arrow {
+          width: 36px;
+          height: 36px;
+        }
+
+        .button-pill .label {
+          height: 36px;
+          padding: 0 16px;
+          font-size: 12px;
+          letter-spacing: 0.2px;
+        }
+
+        .hero-carousel {
+          display: flex;
+          gap: 16px;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+
+        .hero-carousel::-webkit-scrollbar {
+          display: none;
+        }
+
+        .hero-slide {
+          min-width: 100%;
+          scroll-snap-align: start;
+        }
+
+        .hero-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 999px;
+          background: #1b1616;
+          transition: all 160ms ease;
+        }
+
+        .hero-dot.is-active {
+          width: 18px;
+          height: 18px;
+          background: white;
+          border: 1px solid #a4161a;
+          box-shadow: inset 0 0 0 5px #a4161a;
+        }
+
+        .mobile-header {
+          display: grid;
+          grid-template-columns: 40px 1fr;
+          align-items: center;
+          gap: 8px;
+          position: relative;
+        }
+
+        .mobile-centered-logo {
+          justify-self: center;
+        }
+
+        .mobile-cart-anchor {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        .mobile-search-row {
+          padding-bottom: 12px;
+        }
+
+        .mobile-sale-shortcuts {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 8px;
+          padding: 10px 8px;
+          border-radius: 0;
+        }
+
+        .mobile-sale-shortcuts a {
+          min-width: 0;
+        }
+
+        .mobile-sale-shortcuts span {
+          font-size: 11px;
+          line-height: 1.1;
+        }
+
+        .section-inner {
+          width: calc(100vw - 20px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header-container" class="section-container w-full">
+      <div class="bg-brand-red text-white" id="email-container">
+        <div class="container-figma flex min-h-12 items-center justify-between gap-5 py-2 max-lg:flex-wrap max-md:gap-2 max-md:py-1.5">
+          <div class="flex min-w-0 items-center gap-3">
+            <img
+              src="./images/email.svg"
+              alt=""
+              class="h-[12px] w-[12px] shrink-0 max-md:h-2.5 max-md:w-2.5"
+            />
+            <p class="news-text whitespace-nowrap max-lg:whitespace-normal">
+              Win Your Height In Beer on Clipsal orders $110 + FREE SHIPPING on Clipsal Orders
+            </p>
+          </div>
+          <div class="flex items-center gap-[15px] max-lg:flex-wrap max-md:hidden">
+            <div class="flex items-center gap-[10px]">
+              <img
+                src="./images/call.svg"
+                alt=""
+                class="h-6 w-6"
+              />
+              <span class="news-text whitespace-nowrap">02102780583</span>
+            </div>
+            <img
+              src="https://www.figma.com/api/mcp/asset/0f484ee3-8e98-405c-93cd-557a35e036fa"
+              alt=""
+              class="h-[23px] w-px"
+            />
+            <div class="flex items-center gap-[10px]">
+              <img
+                src="./images/email.svg"
+                alt=""
+                class="h-6 w-6"
+              />
+              <span class="news-text whitespace-nowrap">sales@sparkyshop.co.nz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-brand-dark text-white max-md:hidden">
+        <div class="container-figma flex min-h-12 items-center justify-between gap-6 max-lg:flex-wrap max-md:min-h-0">
+          <nav class="flex items-center gap-[15px] py-3 max-md:w-full max-md:justify-between max-md:gap-2 max-md:py-2">
+            <a href="#" class="rounded-[3px] px-[5px] py-px text-[16px] font-normal leading-[25px] tracking-[0.5px] text-brand-redSoft max-md:px-0 max-md:text-[12px] max-md:leading-4">Home</a>
+            <a href="#" class="rounded-[3px] px-[5px] py-px text-[16px] font-normal leading-[25px] tracking-[0.5px] max-md:px-0 max-md:text-[12px] max-md:leading-4">About US</a>
+            <a href="#" class="rounded-[3px] px-[5px] py-px text-[16px] font-normal leading-[25px] tracking-[0.5px] max-md:px-0 max-md:text-[12px] max-md:leading-4">FAQ's</a>
+            <a href="#" class="rounded-[3px] px-[5px] py-px text-[16px] font-normal leading-[25px] tracking-[0.5px] max-md:px-0 max-md:text-[12px] max-md:leading-4">Contact</a>
+            <a href="#" class="rounded-[3px] px-[5px] py-px text-[16px] font-normal leading-[25px] tracking-[0.5px] max-md:px-0 max-md:text-[12px] max-md:leading-4">Projects</a>
+          </nav>
+          <div class="flex items-center gap-[30px] py-3 max-lg:hidden">
+            <a href="#" class="text-[16px] font-normal leading-[25px] tracking-[0.5px] text-[#ffd60a]">SALE %</a>
+            <a href="#" class="text-[16px] font-normal leading-[25px] tracking-[0.5px]">SHOP</a>
+            <a href="#" class="flex items-center gap-[5px] text-[16px] font-normal leading-[25px] tracking-[0.5px]">
+              SERVICES
+              <img src="./images/arrow-right.svg" alt="" class="h-5 w-5 rotate-90" />
+            </a>
+            <a href="#" class="flex items-center gap-[5px] text-[16px] font-normal leading-[25px] tracking-[0.5px]">
+              SOLUTIONS
+              <img src="./images/arrow-right.svg" alt="" class="h-5 w-5 rotate-90" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-b border-brand-line bg-white" id="search-container">
+        <div class="container-figma flex min-h-[66px] items-center justify-between gap-6 py-4 max-lg:flex-wrap max-md:hidden">
+          <div class="flex items-start gap-1 max-md:w-full max-md:justify-center">
+            <img
+              src="./images/logo.svg"
+              alt="Sparky Shop"
+              class="h-[35px] w-auto max-md:h-[30px]"
+            />
+            <span class="logo-r mt-[2px]">R</span>
+          </div>
+
+          <div class="relative w-full max-w-[433px] max-md:order-3 max-md:max-w-none">
+            <img
+              src="./images/search-svgrepo-com%201.svg"
+              alt=""
+              class="pointer-events-none absolute left-[18px] top-1/2 h-6 w-6 -translate-y-1/2"
+            />
+            <input
+              type="search"
+              placeholder="Search your product here..."
+              class="h-[42px] w-full rounded-[10px] border border-brand-line pl-[54px] pr-4 text-[16px] font-normal leading-[25px] tracking-[0.5px] text-[#7b7b7b] outline-none max-md:h-[40px] max-md:text-[12px] max-md:leading-[18px]"
+            />
+          </div>
+
+          <div class="flex items-center gap-[15px] max-lg:w-full max-lg:flex-wrap max-md:order-2 max-md:grid max-md:w-full max-md:grid-cols-4 max-md:gap-y-3">
+            <a href="#" class="flex items-center gap-[10px] text-[16px] font-normal leading-[25px] tracking-[0.5px] text-brand-dark max-md:flex-col max-md:gap-1 max-md:text-center max-md:text-[0]">
+              <img src="./images/user.svg" alt="" class="h-5 w-5" />
+              <span class="max-md:text-[12px] max-md:leading-4">Login</span>
+              <span class="max-md:hidden">Login/ Register</span>
+            </a>
+            <img src="https://www.figma.com/api/mcp/asset/0f484ee3-8e98-405c-93cd-557a35e036fa" alt="" class="h-[23px] w-px max-md:hidden" />
+            <a href="#" class="flex items-center gap-[10px] text-[16px] font-normal leading-[25px] tracking-[0.5px] text-brand-dark max-md:flex-col max-md:gap-1 max-md:text-center max-md:text-[12px] max-md:leading-4">
+              <img src="./images/Trade%20Account%20ICON%201.png" alt="" class="h-[26px] w-[22px]" />
+              <span class="max-md:hidden">Trade Account</span>
+              <span class="md:hidden">Trade</span>
+            </a>
+            <img src="https://www.figma.com/api/mcp/asset/0f484ee3-8e98-405c-93cd-557a35e036fa" alt="" class="h-[23px] w-px max-md:hidden" />
+            <a href="#" class="flex items-center gap-[10px] text-[16px] font-normal leading-[25px] tracking-[0.5px] text-brand-dark max-md:flex-col max-md:gap-1 max-md:text-center max-md:text-[12px] max-md:leading-4">
+              <img src="./images/note-2.svg" alt="" class="h-6 w-6" />
+              Quote
+            </a>
+            <img src="https://www.figma.com/api/mcp/asset/0f484ee3-8e98-405c-93cd-557a35e036fa" alt="" class="h-[23px] w-px max-md:hidden" />
+            <a href="#" class="relative flex items-center gap-[10px] text-[16px] font-normal leading-[25px] tracking-[0.5px] text-brand-dark max-md:flex-col max-md:gap-1 max-md:text-center max-md:text-[12px] max-md:leading-4">
+              <svg class="h-6 w-6 text-brand-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="9" cy="20" r="1.4"></circle>
+                <circle cx="18" cy="20" r="1.4"></circle>
+                <path d="M3 4h2l2.4 10.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.76L20 7H7.3"></path>
+              </svg>
+              Cart
+              <span class="absolute -right-3 -top-2 flex h-5 w-5 items-center justify-center rounded-[10px] bg-brand-dark text-[12px] font-semibold text-white max-md:right-[18px] max-md:top-[-3px]">1</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden border-b border-brand-line bg-white max-md:block">
+        <div class="container-figma">
+          <div class="mobile-header min-h-[62px] py-3">
+            <button
+              type="button"
+              id="mobile-menu-toggle"
+              aria-label="Open menu"
+              aria-expanded="false"
+              class="flex h-10 w-10 items-center justify-center rounded-[10px] border border-[#e0e0e0]"
+            >
+              <span class="flex w-5 flex-col gap-1.5">
+                <img src="./images/menu-11.svg" alt="" class="h-5 w-5" />
+              </span>
+            </button>
+
+            <div class="mobile-centered-logo flex items-start gap-1">
+              <img src="./images/logo.svg" alt="Sparky Shop" class="h-[24px] w-auto" />
+            </div>
+
+            <a href="#" aria-label="Cart" class="mobile-cart-anchor relative flex h-10 w-10 items-center justify-center rounded-[10px] border border-[#e0e0e0] bg-white">
+              <svg class="h-5 w-5 text-brand-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="9" cy="20" r="1.4"></circle>
+                <circle cx="18" cy="20" r="1.4"></circle>
+                <path d="M3 4h2l2.4 10.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.76L20 7H7.3"></path>
+              </svg>
+              <span class="absolute -right-1 -top-1 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-brand-dark text-[10px] font-semibold text-white">1</span>
+            </a>
+          </div>
+
+          <div class="mobile-search-row relative">
+            <img
+              src="./images/search-svgrepo-com%201.svg"
+              alt=""
+              class="pointer-events-none absolute left-[18px] top-1/2 h-5 w-5 -translate-y-1/2"
+            />
+            <input
+              type="search"
+              placeholder="Search your product here..."
+              class="h-[40px] w-full rounded-[10px] border border-brand-line pl-[48px] pr-4 text-[12px] font-normal leading-[18px] tracking-[0.2px] text-[#7b7b7b] outline-none"
+            />
+          </div>
+
+          <div
+            id="mobile-menu-panel"
+            class="hidden border-t border-brand-line py-3"
+          >
+            <nav class="grid gap-3">
+              <a href="#" class="text-[14px] font-medium leading-5 text-brand-red">Home</a>
+              <a href="#" class="text-[14px] font-medium leading-5 text-brand-dark">About US</a>
+              <a href="#" class="text-[14px] font-medium leading-5 text-brand-dark">FAQ's</a>
+              <a href="#" class="text-[14px] font-medium leading-5 text-brand-dark">Contact</a>
+              <a href="#" class="text-[14px] font-medium leading-5 text-brand-dark">Projects</a>
+              <a href="#" class="text-[14px] font-medium leading-5 text-brand-dark">Shop</a>
+              <a href="#" class="text-[14px] font-medium leading-5 text-brand-dark">Services</a>
+              <a href="#" class="text-[14px] font-medium leading-5 text-brand-dark">Solutions</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-y border-brand-line bg-white max-md:hidden" id="categories-container">
+        <div class="container-figma flex min-h-[109px] items-center justify-between gap-[36px] overflow-x-auto py-5 max-md:grid max-md:grid-cols-4 max-md:gap-x-2 max-md:gap-y-4 max-md:overflow-visible max-md:py-4">
+          <a href="#" class="flex min-w-max flex-col items-center gap-[10px] max-md:min-w-0">
+            <img src="./images/bulb-2-svgrepo-com%201.png" alt="" class="h-[50px] w-[50px]" />
+            <span class="text-[16px] font-medium leading-none tracking-[0.5px] max-md:text-center max-md:text-[12px]">Lighting</span>
+          </a>
+          <a href="#" class="flex min-w-max flex-col items-center gap-[10px] max-md:min-w-0">
+            <img src="./images/Swiches%20and%20powerpoints%201.svg" alt="" class="h-11 w-11" />
+            <span class="text-[16px] font-medium leading-none tracking-[0.5px] max-md:text-center max-md:text-[12px] max-md:leading-4">Switches &amp; power points</span>
+          </a>
+          <a href="#" class="flex min-w-max flex-col items-center gap-[10px] max-md:min-w-0">
+            <img src="./images/Swiches%20and%20powerpoints%201.svg" alt="" class="h-11 w-11" />
+            <span class="text-[16px] font-medium leading-none tracking-[0.5px] max-md:text-center max-md:text-[12px] max-md:leading-4">Electronics items</span>
+          </a>
+          <a href="#" class="flex min-w-max flex-col items-center gap-[10px] max-md:min-w-0">
+            <img src="./images/smart-home-svgrepo-com%201.svg" alt="" class="h-11 w-11" />
+            <span class="text-[16px] font-medium leading-none tracking-[0.5px] max-md:text-center max-md:text-[12px] max-md:leading-4">Smart solutions</span>
+          </a>
+          <a href="#" class="flex min-w-max flex-col items-center gap-[10px] max-xl:hidden max-md:hidden">
+            <img src="./images/bulb-2-svgrepo-com%201.png" alt="" class="h-[50px] w-[50px]" />
+            <span class="text-[16px] font-medium leading-none tracking-[0.5px]">Lighting</span>
+          </a>
+          <a href="#" class="flex min-w-max flex-col items-center gap-[10px] max-xl:hidden max-md:hidden">
+            <img src="./images/Swiches%20and%20powerpoints%201.svg" alt="" class="h-11 w-11" />
+            <span class="text-[16px] font-medium leading-none tracking-[0.5px]">Switches &amp; power points</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="pb-20">
+      <section class="container-figma hidden py-5 max-md:block">
+        <div id="hero-carousel" class="hero-carousel">
+          <article class="hero-slide rounded-[18px] border border-[#e0e0e0] bg-brand-light p-3 shadow-soft">
+            <div class="overflow-hidden rounded-[18px]">
+              <img
+                src="https://www.figma.com/api/mcp/asset/2bc53f05-104e-49b1-83c3-f90d3e2c9898"
+                alt=""
+                class="h-[220px] w-full object-cover"
+              />
+            </div>
+            <div class="mt-4">
+              <h2 class="title-24">Lighting solutions</h2>
+              <p class="body-16 mt-3 max-w-[250px] text-brand-dark">
+                Discover cutting-edge electronics from leading brands.
+              </p>
+              <div class="button-pill mt-5">
+                <span class="label">View all products</span>
+                <img src="./images/arrow-right.svg" alt="" class="rounded-arrow" />
+              </div>
+            </div>
+          </article>
+
+          <article class="hero-slide rounded-[18px] border border-[#e0e0e0] bg-brand-light p-3 shadow-soft">
+            <div class="overflow-hidden rounded-[18px] bg-white">
+              <img
+                src="https://www.figma.com/api/mcp/asset/b9cabf70-0d26-4db4-ba0d-34ad544eae3a"
+                alt=""
+                class="h-[220px] w-full object-cover"
+              />
+            </div>
+            <div class="mt-4">
+              <h2 class="title-24">Smart solutions</h2>
+              <p class="body-16 mt-3 max-w-[250px] text-brand-dark">
+                Discover cutting-edge electronics from leading brands.
+              </p>
+              <div class="button-pill mt-5">
+                <span class="label">View all products</span>
+                <img src="./images/arrow-right.svg" alt="" class="rounded-arrow" />
+              </div>
+            </div>
+          </article>
+
+          <article class="hero-slide rounded-[18px] border border-[#e0e0e0] bg-brand-light p-3 shadow-soft">
+            <div class="overflow-hidden rounded-[18px]">
+              <img
+                src="https://www.figma.com/api/mcp/asset/bd8581eb-0dcf-48c1-866b-06c81df05d4c"
+                alt=""
+                class="h-[220px] w-full object-cover"
+              />
+            </div>
+            <div class="mt-4">
+              <h2 class="title-24">Smart switches</h2>
+              <p class="body-16 mt-3 max-w-[250px] text-brand-dark">
+                Discover cutting-edge electronics from leading.
+              </p>
+              <div class="button-pill mt-5">
+                <span class="label">View all products</span>
+                <img src="./images/arrow-right.svg" alt="" class="rounded-arrow" />
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div id="hero-dots" class="mt-4 flex items-center justify-center gap-3">
+          <button type="button" class="hero-dot is-active" aria-label="Go to slide 1" data-slide-index="0"></button>
+          <button type="button" class="hero-dot" aria-label="Go to slide 2" data-slide-index="1"></button>
+          <button type="button" class="hero-dot" aria-label="Go to slide 3" data-slide-index="2"></button>
+        </div>
+      </section>
+
+      <section class="container-figma grid gap-5 py-[42px] max-md:hidden lg:grid-cols-[420px_1fr_420px]">
+        <article class="rounded-[20px] border border-[#e0e0e0] bg-brand-light p-4 shadow-soft max-md:rounded-[18px] max-md:p-3">
+          <div class="overflow-hidden rounded-[20px]">
+            <img
+              src="https://www.figma.com/api/mcp/asset/b9cabf70-0d26-4db4-ba0d-34ad544eae3a"
+              alt=""
+              class="h-[418px] w-full object-cover max-md:h-[220px]"
+            />
+          </div>
+          <div class="relative mt-[17px] min-h-[188px] max-md:mt-4 max-md:min-h-0">
+            <img
+              src="https://www.figma.com/api/mcp/asset/43081847-f1c5-4e53-a462-2cc26eb2be12"
+              alt=""
+              class="mx-auto h-[200px] w-[200px] object-cover max-md:-mt-12 max-md:h-[132px] max-md:w-[132px]"
+            />
+            <h2 class="title-24 mt-[18px]">Smart solutions</h2>
+            <p class="body-16 mt-[5px] w-[372px] max-w-full text-brand-dark max-md:max-w-[250px]">
+              Discover cutting-edge electronics from leading brands.
+            </p>
+          </div>
+          <div class="button-pill mt-[56px] max-md:mt-5">
+            <span class="label">View all products</span>
+            <img src="https://www.figma.com/api/mcp/asset/7e2afdd7-5bf0-4629-a02d-ec57531f2a55" alt="" class="rounded-arrow" />
+          </div>
+        </article>
+
+        <div class="grid gap-5 lg:col-span-2 lg:grid-cols-2">
+          <article class="rounded-[20px] border border-[#e0e0e0] bg-brand-light p-[20px_23px_20px_23px] shadow-soft max-md:order-1 max-md:p-3 lg:col-span-2">
+            <div class="grid gap-6 lg:grid-cols-[373px_406px] lg:justify-between">
+              <div class="pt-1">
+                <h2 class="title-24">Lighting solutions</h2>
+                <p class="body-16 mt-[17px] w-[372px] max-w-full text-brand-dark max-md:mt-3 max-md:max-w-[250px]">
+                  Discover cutting-edge electronics from leading brands.
+                </p>
+                <div class="button-pill mt-[72px] max-md:mt-5">
+                  <span class="label">View all products</span>
+                  <img src="https://www.figma.com/api/mcp/asset/79be6bd0-7d16-4b16-9784-28b5fdaaf86b" alt="" class="rounded-arrow" />
+                </div>
+              </div>
+              <div class="overflow-hidden rounded-[20px] max-md:order-first">
+                <img
+                  src="https://www.figma.com/api/mcp/asset/2bc53f05-104e-49b1-83c3-f90d3e2c9898"
+                  alt=""
+                  class="h-[225px] w-full object-cover max-md:h-[180px]"
+                />
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-[20px] border border-[#e0e0e0] bg-brand-light p-[19px_16px_28px_16px] shadow-soft max-md:hidden">
+            <div class="overflow-hidden rounded-[20px]">
+              <img
+                src="https://www.figma.com/api/mcp/asset/bd8581eb-0dcf-48c1-866b-06c81df05d4c"
+                alt=""
+                class="h-[235px] w-full object-cover"
+              />
+            </div>
+            <h3 class="title-24 mt-[17px]">Smart switches</h3>
+            <div class="mt-[9px] flex items-start justify-between gap-4">
+              <p class="body-16 w-[271px] text-brand-dark">
+                Discover cutting-edge electronics from leading.
+              </p>
+              <img src="https://www.figma.com/api/mcp/asset/942a1130-c7cb-4a05-9aba-cb0badc51510" alt="" class="h-11 w-11 shrink-0" />
+            </div>
+          </article>
+
+          <article class="rounded-[20px] border border-[#e0e0e0] bg-brand-light p-[19px_16px_28px_16px] shadow-soft max-md:hidden">
+            <div class="overflow-hidden rounded-[20px]">
+              <img
+                src="https://www.figma.com/api/mcp/asset/b9cabf70-0d26-4db4-ba0d-34ad544eae3a"
+                alt=""
+                class="h-[235px] w-full object-cover"
+              />
+            </div>
+            <h3 class="title-24 mt-[17px]">Electronic Accessories</h3>
+            <div class="mt-[9px] flex items-start justify-between gap-4">
+              <p class="body-16 w-[271px] text-brand-dark">
+                Discover cutting-edge electronics from leading.
+              </p>
+              <img src="https://www.figma.com/api/mcp/asset/942a1130-c7cb-4a05-9aba-cb0badc51510" alt="" class="h-11 w-11 shrink-0" />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="products-sale-container" class="container-figma py-[108px] max-md:py-6">
+        <div class="flex items-end justify-between gap-6 max-lg:flex-col max-lg:items-start max-md:gap-3">
+          <div>
+            <h2 class="section-kicker">
+              <span class="text-brand-dark">products on </span><span class="outline-red">Sale</span>
+            </h2>
+            <p class="body-16 mt-[22px] max-w-[675px] text-brand-text max-md:hidden">
+              Check-out our comprehensive range of electrical accessories available at our online store.
+            </p>
+          </div>
+          <div class="button-pill max-md:hidden">
+            <span class="label">View more products</span>
+            <img src="https://www.figma.com/api/mcp/asset/ef0735f2-5504-4668-85bd-f34643b5546d" alt="" class="rounded-arrow" />
+          </div>
+        </div>
+
+        <div class="mt-[60px] grid gap-5 max-md:mt-3 lg:grid-cols-[420px_200px_660px]">
+          <div class="grid grid-cols-2 gap-5 max-md:hidden">
+            <div class="rounded-[15px] border border-[#e0e0e0] bg-brand-light p-3">
+              <div class="rounded-t-[5px] bg-brand-green px-[10px] py-[5px] text-center text-[16px] leading-[25px] tracking-[0.5px] text-white">LED Bulb</div>
+              <img src="https://www.figma.com/api/mcp/asset/3a60f014-0e2d-440a-9447-ed5e40e1cdc9" alt="" class="mx-auto mt-5 h-[120px] w-[120px] object-cover" />
+            </div>
+            <div class="rounded-[15px] border border-[#e0e0e0] bg-white p-3">
+              <img src="https://www.figma.com/api/mcp/asset/99eeeaf4-fcdf-4063-96c2-fb42d1f5b347" alt="" class="mx-auto mt-5 h-[120px] w-[120px] object-cover" />
+            </div>
+            <div class="rounded-[15px] border border-[#e0e0e0] bg-white p-3">
+              <img src="https://www.figma.com/api/mcp/asset/04a8f98e-79e0-4a98-9353-85d78624f196" alt="" class="mx-auto mt-5 h-[120px] w-[120px] object-cover" />
+            </div>
+            <div class="rounded-[15px] border border-[#e0e0e0] bg-white p-3">
+              <img src="https://www.figma.com/api/mcp/asset/9ed0db0c-1ace-4da7-b377-ff88cb8ea228" alt="" class="mx-auto mt-5 h-[120px] w-[120px] object-cover" />
+            </div>
+            <div class="rounded-[15px] border border-[#e0e0e0] bg-white p-3">
+              <img src="https://www.figma.com/api/mcp/asset/61beea00-f6a9-462c-9949-736e5c156021" alt="" class="mx-auto mt-5 h-[120px] w-[120px] object-cover" />
+            </div>
+            <div class="rounded-[15px] border border-[#e0e0e0] bg-white p-3">
+              <img src="https://www.figma.com/api/mcp/asset/34b6a30c-8e98-44b1-b45a-5003bf7e7a1a" alt="" class="mx-auto mt-5 h-[120px] w-[120px] object-cover" />
+            </div>
+          </div>
+
+          <div class="hidden lg:block"></div>
+
+          <article class="relative overflow-hidden rounded-[15px] bg-brand-red px-[39px] pb-[29px] pt-[39px] text-white max-md:px-3 max-md:pb-4 max-md:pt-4">
+            <div class="mb-3 hidden rounded-[10px] bg-[#fce9e9] px-5 py-4 text-[16px] font-medium text-brand-red max-md:flex max-md:items-center max-md:justify-between max-md:text-[12px]">
+              <span>LED Bulb</span>
+              <span class="text-[18px] leading-none">↓</span>
+            </div>
+            <div class="pointer-events-none absolute inset-0 opacity-10">
+              <img src="https://www.figma.com/api/mcp/asset/bfda9aec-c9b8-468b-b767-ea0a09d6ff9a" alt="" class="absolute -top-[108px] left-0 h-[681px] w-[681px] object-cover" />
+              <img src="https://www.figma.com/api/mcp/asset/bfda9aec-c9b8-468b-b767-ea0a09d6ff9a" alt="" class="absolute right-0 top-0 h-[681px] w-[681px] object-cover" />
+            </div>
+            <div class="pointer-events-none absolute left-[39px] top-[19px] text-[90px] font-medium uppercase leading-none opacity-50 max-md:left-6 max-md:top-8 max-md:text-[54px]">
+              SPARKY specials
+            </div>
+            <div class="relative z-10">
+              <div class="absolute left-0 top-0 max-md:left-2 max-md:top-3">
+                <div class="inline-flex rotate-[5.5deg] rounded-[8px] bg-brand-green px-3 py-1 text-[24px] font-medium capitalize leading-none text-white max-md:text-[16px]">
+                  sale
+                </div>
+              </div>
+              <div class="mobile-sale-shortcuts mb-4 hidden bg-brand-red max-md:grid">
+                <a href="#" class="flex flex-col items-center gap-1 rounded-[10px] bg-[#b33f42] px-1 py-2 text-white">
+                  <img src="https://www.figma.com/api/mcp/asset/efac04c3-bcec-42d4-9df6-518fc695becf" alt="" class="h-4 w-4" />
+                  <span class="text-[11px] leading-4">Login</span>
+                </a>
+                <a href="#" class="flex flex-col items-center gap-1 rounded-[10px] bg-[#b33f42] px-1 py-2 text-white">
+                  <img src="https://www.figma.com/api/mcp/asset/4f797521-5eee-48db-956c-3feaf1cfcf1c" alt="" class="h-4 w-4" />
+                  <span class="text-[11px] leading-4">Call</span>
+                </a>
+                <a href="#" class="flex flex-col items-center gap-1 rounded-[10px] bg-[#b33f42] px-1 py-2 text-white">
+                  <img src="https://www.figma.com/api/mcp/asset/ded2de28-84b9-4589-af8f-03b06a69164a" alt="" class="h-4 w-4" />
+                  <span class="text-[11px] leading-4">Shop</span>
+                </a>
+                <a href="#" class="flex flex-col items-center gap-1 rounded-[10px] bg-[#b33f42] px-1 py-2 text-white">
+                  <img src="https://www.figma.com/api/mcp/asset/5f751922-5841-4376-8d03-98299bd15733" alt="" class="h-4 w-4" />
+                  <span class="text-[11px] leading-4">Quote</span>
+                </a>
+                <a href="#" class="flex flex-col items-center gap-1 rounded-[10px] bg-[#b33f42] px-1 py-2 text-white">
+                  <img src="https://www.figma.com/api/mcp/asset/fb1f9b5b-8e5a-40e9-8ffa-ac9578f8cb5d" alt="" class="h-4 w-4" />
+                  <span class="text-[11px] leading-4">Cart</span>
+                </a>
+              </div>
+              <div class="grid gap-8 lg:grid-cols-[291px_1fr] lg:items-center">
+                <div class="mt-[102px] rounded-[24px] bg-brand-light p-3 max-md:mt-12 max-md:rounded-[18px] max-md:p-2">
+                  <img
+                    src="https://www.figma.com/api/mcp/asset/f5fe83db-ff8e-4547-8ad7-d2262e1b1dea"
+                    alt=""
+                    class="mx-auto h-[284px] w-[284px] object-cover max-md:h-[230px] max-md:w-[230px]"
+                  />
+                </div>
+                <div class="pt-[96px] max-md:hidden">
+                  <h3 class="text-[32px] font-semibold leading-none text-white">
+                    100W Outdoor Flood Light IP65
+                  </h3>
+                  <p class="mt-[45px] text-[20px] font-medium leading-[25px] tracking-[0.5px] text-white">
+                    $ 120.00
+                  </p>
+                  <div class="button-pill white mt-[10px]">
+                    <span class="label">View product</span>
+                    <img src="https://www.figma.com/api/mcp/asset/b27cd73a-ed3f-4daf-8a14-4f5a52f95387" alt="" class="rounded-arrow" />
+                  </div>
+                  <div class="mt-[114px] rounded-[10px] bg-brand-chip px-[19px] py-[15px]">
+                    <div class="grid gap-[15px] md:grid-cols-2">
+                      <div class="flex items-center gap-[5px] text-[16px] leading-[25px] tracking-[0.5px]">
+                        <img src="https://www.figma.com/api/mcp/asset/0daf9c1f-b4e9-4672-8f2e-c343ca9013a8" alt="" class="h-6 w-6" />
+                        Always great prices
+                      </div>
+                      <div class="flex items-center gap-[5px] text-[16px] leading-[25px] tracking-[0.5px]">
+                        <img src="https://www.figma.com/api/mcp/asset/d50793ea-2df4-4623-9734-38eb51733e1b" alt="" class="h-6 w-6" />
+                        Trusted by Kiwis
+                      </div>
+                      <div class="flex items-center gap-[5px] text-[16px] leading-[25px] tracking-[0.5px]">
+                        <img src="https://www.figma.com/api/mcp/asset/db00eac0-37ff-4c01-aeef-26ad545c9e3d" alt="" class="h-6 w-6" />
+                        Great quality products
+                      </div>
+                      <div class="flex items-center gap-[5px] text-[16px] leading-[25px] tracking-[0.5px]">
+                        <img src="https://www.figma.com/api/mcp/asset/52b5d8ff-acc6-49ca-bad7-391228173ded" alt="" class="h-6 w-6" />
+                        Serving since 2021
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="our-products-container" class="container-figma py-[84px] max-md:py-10">
+        <div class="flex items-end justify-between gap-6 max-md:flex-col max-md:items-start">
+          <div>
+            <h2 class="section-kicker">
+              <span class="text-brand-dark">our </span><span class="outline-red">products</span>
+            </h2>
+            <p class="body-16 mt-[22px] max-w-[675px] text-brand-text max-md:hidden">
+              Explore selected electrical products from the current Sparky Shop catalogue.
+            </p>
+          </div>
+          <div class="button-pill max-md:hidden">
+            <span class="label">View more products</span>
+            <img src="https://www.figma.com/api/mcp/asset/ef0735f2-5504-4668-85bd-f34643b5546d" alt="" class="rounded-arrow" />
+          </div>
+        </div>
+
+        <div class="mt-[55px] grid gap-5 md:grid-cols-2 xl:grid-cols-4 max-md:mt-4">
+          <article class="rounded-[20px] border border-[#e0e0e0] bg-white p-3 shadow-soft">
+            <div class="relative overflow-hidden rounded-[18px] bg-[#f7f7f7]">
+              <span class="absolute left-3 top-3 rounded-full bg-brand-red px-[19px] py-1 text-[16px] leading-[25px] tracking-[0.5px] text-white max-md:text-[11px] max-md:leading-4">Save 40%</span>
+              <span class="absolute right-3 top-3 rounded-full bg-brand-red px-[16px] py-[4px] text-[16px] leading-[25px] tracking-[0.5px] text-white max-md:text-[11px] max-md:leading-4">$ 120.00</span>
+              <img src="https://www.figma.com/api/mcp/asset/5f9425b0-5747-45a2-8ff0-66ea623859e9" alt="" class="mx-auto h-[272px] w-[272px] object-cover max-md:h-[170px] max-md:w-[170px]" />
+            </div>
+            <div class="mt-6 flex items-start justify-between gap-4">
+              <div>
+                <span class="rounded-full bg-brand-green px-[19px] py-[4px] text-[16px] leading-[25px] tracking-[0.5px] text-white max-md:text-[11px] max-md:leading-4">IP 65</span>
+                <h3 class="mt-4 text-[20px] font-medium leading-[25px] tracking-[0.5px] text-brand-dark max-md:text-[14px] max-md:leading-5">100W Outdoor Flood Light IP65</h3>
+              </div>
+              <img src="https://www.figma.com/api/mcp/asset/9757dc7d-4375-4d1f-91a3-5b08b9acd8b6" alt="" class="mt-[14px] h-11 w-11 shrink-0" />
+            </div>
+          </article>
+          <article class="rounded-[20px] border border-[#e0e0e0] bg-white p-3 shadow-soft">
+            <div class="relative overflow-hidden rounded-[18px] bg-[#f7f7f7]">
+              <span class="absolute left-3 top-3 rounded-full bg-brand-red px-[19px] py-1 text-[16px] leading-[25px] tracking-[0.5px] text-white">Save 40%</span>
+              <span class="absolute right-3 top-3 rounded-full bg-brand-red px-[16px] py-[4px] text-[16px] leading-[25px] tracking-[0.5px] text-white">$ 120.00</span>
+              <img src="https://www.figma.com/api/mcp/asset/5f9425b0-5747-45a2-8ff0-66ea623859e9" alt="" class="mx-auto h-[272px] w-[272px] object-cover" />
+            </div>
+            <div class="mt-6 flex items-start justify-between gap-4">
+              <div>
+                <span class="rounded-full bg-brand-green px-[19px] py-[4px] text-[16px] leading-[25px] tracking-[0.5px] text-white">IP 65</span>
+                <h3 class="mt-4 text-[20px] font-medium leading-[25px] tracking-[0.5px] text-brand-dark">100W Outdoor Flood Light IP65</h3>
+              </div>
+              <img src="https://www.figma.com/api/mcp/asset/9757dc7d-4375-4d1f-91a3-5b08b9acd8b6" alt="" class="mt-[14px] h-11 w-11 shrink-0" />
+            </div>
+          </article>
+          <article class="rounded-[20px] border border-[#e0e0e0] bg-white p-3 shadow-soft">
+            <div class="relative overflow-hidden rounded-[18px] bg-[#f7f7f7]">
+              <span class="absolute left-3 top-3 rounded-full bg-brand-red px-[19px] py-1 text-[16px] leading-[25px] tracking-[0.5px] text-white">Save 40%</span>
+              <span class="absolute right-3 top-3 rounded-full bg-brand-red px-[16px] py-[4px] text-[16px] leading-[25px] tracking-[0.5px] text-white">$ 120.00</span>
+              <img src="https://www.figma.com/api/mcp/asset/5f9425b0-5747-45a2-8ff0-66ea623859e9" alt="" class="mx-auto h-[272px] w-[272px] object-cover" />
+            </div>
+            <div class="mt-6 flex items-start justify-between gap-4">
+              <div>
+                <span class="rounded-full bg-brand-green px-[19px] py-[4px] text-[16px] leading-[25px] tracking-[0.5px] text-white">IP 65</span>
+                <h3 class="mt-4 text-[20px] font-medium leading-[25px] tracking-[0.5px] text-brand-dark">100W Outdoor Flood Light IP65</h3>
+              </div>
+              <img src="https://www.figma.com/api/mcp/asset/9757dc7d-4375-4d1f-91a3-5b08b9acd8b6" alt="" class="mt-[14px] h-11 w-11 shrink-0" />
+            </div>
+          </article>
+          <article class="rounded-[20px] border border-[#e0e0e0] bg-white p-3 shadow-soft">
+            <div class="relative overflow-hidden rounded-[18px] bg-[#f7f7f7]">
+              <span class="absolute left-3 top-3 rounded-full bg-brand-red px-[19px] py-1 text-[16px] leading-[25px] tracking-[0.5px] text-white">Save 40%</span>
+              <span class="absolute right-3 top-3 rounded-full bg-brand-red px-[16px] py-[4px] text-[16px] leading-[25px] tracking-[0.5px] text-white">$ 120.00</span>
+              <img src="https://www.figma.com/api/mcp/asset/5f9425b0-5747-45a2-8ff0-66ea623859e9" alt="" class="mx-auto h-[272px] w-[272px] object-cover" />
+            </div>
+            <div class="mt-6 flex items-start justify-between gap-4">
+              <div>
+                <span class="rounded-full bg-brand-green px-[19px] py-[4px] text-[16px] leading-[25px] tracking-[0.5px] text-white">IP 65</span>
+                <h3 class="mt-4 text-[20px] font-medium leading-[25px] tracking-[0.5px] text-brand-dark">100W Outdoor Flood Light IP65</h3>
+              </div>
+              <img src="https://www.figma.com/api/mcp/asset/9757dc7d-4375-4d1f-91a3-5b08b9acd8b6" alt="" class="mt-[14px] h-11 w-11 shrink-0" />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="our-promotions-container" class="container-figma py-[84px] max-md:py-10">
+        <h2 class="section-kicker">
+          <span class="text-brand-dark">our </span><span class="outline-red">promotions</span>
+        </h2>
+        <div class="mt-[55px] grid gap-5 lg:grid-cols-2 max-md:mt-4">
+          <img src="https://www.figma.com/api/mcp/asset/07b18dc7-5641-4929-b26d-02c237b4bc6a" alt="" class="w-full rounded-[15px] object-cover shadow-soft" />
+          <img src="https://www.figma.com/api/mcp/asset/07b18dc7-5641-4929-b26d-02c237b4bc6a" alt="" class="w-full rounded-[15px] object-cover shadow-soft" />
+        </div>
+      </section>
+
+      <section id="trending-month-container" class="container-figma py-[84px] max-md:py-10">
+        <h2 class="section-kicker">
+          <span class="text-brand-dark">trending </span><span class="outline-red">this month</span>
+        </h2>
+        <p class="body-16 mt-[18px] max-w-[720px] text-brand-text">
+          We take pride in offering a curated selection of top-quality brands to meet your needs.
+        </p>
+        <div class="mt-[42px] grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+          <article class="rounded-[10px] border border-[#d6ded9] bg-[#5f8479] p-3 text-white"><div class="h-[176px] rounded-[8px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.45),rgba(95,132,121,1)_50%)]"></div><div class="mt-3 flex items-center justify-between"><span class="rounded-full bg-brand-red px-2 py-0.5 text-[11px] font-medium">4 reviews</span><span class="text-[11px]">$ 58.00</span></div></article>
+          <article class="rounded-[10px] border border-[#d6ded9] bg-[#5f8479] p-3 text-white"><div class="h-[176px] rounded-[8px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.45),rgba(95,132,121,1)_50%)]"></div><div class="mt-3 flex items-center justify-between"><span class="rounded-full bg-brand-red px-2 py-0.5 text-[11px] font-medium">4 reviews</span><span class="text-[11px]">$ 58.00</span></div></article>
+          <article class="rounded-[10px] border border-[#d6ded9] bg-[#5f8479] p-3 text-white"><div class="h-[176px] rounded-[8px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.45),rgba(95,132,121,1)_50%)]"></div><div class="mt-3 flex items-center justify-between"><span class="rounded-full bg-brand-red px-2 py-0.5 text-[11px] font-medium">4 reviews</span><span class="text-[11px]">$ 58.00</span></div></article>
+          <article class="rounded-[10px] border border-[#d6ded9] bg-[#5f8479] p-3 text-white"><div class="h-[176px] rounded-[8px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.45),rgba(95,132,121,1)_50%)]"></div><div class="mt-3 flex items-center justify-between"><span class="rounded-full bg-brand-red px-2 py-0.5 text-[11px] font-medium">4 reviews</span><span class="text-[11px]">$ 58.00</span></div></article>
+          <article class="rounded-[10px] border border-[#d6ded9] bg-[#5f8479] p-3 text-white max-md:col-span-2 md:col-span-1"><div class="h-[176px] rounded-[8px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.45),rgba(95,132,121,1)_50%)]"></div><div class="mt-3 flex items-center justify-between"><span class="rounded-full bg-brand-red px-2 py-0.5 text-[11px] font-medium">4 reviews</span><span class="text-[11px]">$ 58.00</span></div></article>
+        </div>
+      </section>
+
+      <section id="our-services-container" class="container-figma py-[84px] max-md:py-10">
+        <h2 class="section-kicker"><span class="text-brand-dark">our </span><span class="outline-red">services</span></h2>
+        <div class="mt-[44px] grid gap-5 lg:grid-cols-[1fr_1.1fr]">
+          <article class="rounded-[15px] border border-[#dedede] bg-white p-5">
+            <p class="body-16 text-brand-text">We sell premium top-quality lighting and electrical accessories from top local and international brands.</p>
+            <div class="mt-5 divide-y divide-[#e6e6e6] border-y border-[#e6e6e6]"><div class="py-3 text-[14px] font-medium text-brand-red">Lighting solutions</div><div class="py-3 text-[14px] text-brand-dark">Technology Solutions</div><div class="py-3 text-[14px] text-brand-dark">Renewable Solutions</div><div class="py-3 text-[14px] text-brand-dark">Delivery solutions</div></div>
+          </article>
+          <article class="overflow-hidden rounded-[15px] border border-[#dedede] bg-white">
+            <img src="https://www.figma.com/api/mcp/asset/07b18dc7-5641-4929-b26d-02c237b4bc6a" alt="" class="h-[240px] w-full object-cover" />
+            <div class="p-5"><h3 class="text-[20px] font-semibold text-brand-dark">Lighting Solutions</h3><p class="body-16 mt-2 text-brand-text">We sell premium-quality top lighting and electrical accessories for both residential and commercial use.</p><div class="button-pill mt-5"><span class="label">View all details</span><img src="./images/arrow-right.svg" alt="" class="rounded-arrow" /></div></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="customer-reviews-container" class="bg-[#f7f7f7] py-[84px] max-md:py-10">
+        <div class="container-figma">
+          <h2 class="text-center section-kicker"><span class="text-brand-dark">customer </span><span class="outline-red">reviews</span></h2>
+          <p class="body-16 mx-auto mt-[18px] max-w-[760px] text-center text-brand-text">We take pride in offering a curated selection of top-quality brands to meet your needs.</p>
+          <div class="mt-6 flex justify-center gap-3"><button class="rounded-full bg-brand-red px-5 py-2 text-[12px] font-medium text-white">Customer reviews</button><button class="rounded-full border border-[#d6d6d6] bg-white px-5 py-2 text-[12px] font-medium text-brand-dark">Google reviews</button></div>
+          <p class="mt-6 text-center text-[28px] tracking-[3px] text-[#20a35a]">★★★★★</p>
+          <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <article class="rounded-[12px] bg-brand-red p-4 text-white"><p class="text-[13px] leading-[20px]">"You guys are very professional and responsive at all times."</p><p class="mt-3 text-[12px] font-semibold">John Doe</p></article>
+            <article class="rounded-[12px] bg-brand-red p-4 text-white"><p class="text-[13px] leading-[20px]">"Top service and clear communication through the entire process."</p><p class="mt-3 text-[12px] font-semibold">Jane Doe</p></article>
+            <article class="rounded-[12px] bg-brand-red p-4 text-white"><p class="text-[13px] leading-[20px]">"Quality products and fair pricing. Highly recommend Sparky Shop."</p><p class="mt-3 text-[12px] font-semibold">Alex D.</p></article>
+            <article class="rounded-[12px] bg-brand-red p-4 text-white"><p class="text-[13px] leading-[20px]">"Great support and reliable delivery every single time."</p><p class="mt-3 text-[12px] font-semibold">Morgan L.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="brands-container" class="container-figma py-[84px] max-md:py-10">
+        <h2 class="text-center section-kicker"><span class="text-brand-dark">brands </span><span class="outline-red">we sell</span></h2>
+        <div class="mt-[36px] grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-6">
+          <div class="flex h-14 items-center justify-center rounded-[8px] border border-[#e0e0e0] bg-white text-[22px] tracking-[2px] text-[#5a5a5a]">SYLPH</div><div class="flex h-14 items-center justify-center rounded-[8px] border border-[#e0e0e0] bg-white text-[22px] tracking-[2px] text-[#5a5a5a]">FISSURE</div><div class="flex h-14 items-center justify-center rounded-[8px] border border-[#e0e0e0] bg-white text-[22px] tracking-[2px] text-[#5a5a5a]">SYLPH</div><div class="flex h-14 items-center justify-center rounded-[8px] border border-[#e0e0e0] bg-white text-[22px] tracking-[2px] text-[#5a5a5a]">SIAN</div><div class="flex h-14 items-center justify-center rounded-[8px] border border-[#e0e0e0] bg-white text-[22px] tracking-[2px] text-[#5a5a5a]">FISSURE</div><div class="flex h-14 items-center justify-center rounded-[8px] border border-[#e0e0e0] bg-white text-[22px] tracking-[2px] text-[#5a5a5a]">SYLPH</div>
+        </div>
+      </section>
+
+      <section id="subscribe-container" class="bg-[#f7f7f7] py-[84px] max-md:py-10">
+        <div class="container-figma">
+          <h2 class="text-center section-kicker"><span class="text-brand-dark">subscribe &amp; </span><span class="outline-red">stay informed</span></h2>
+          <p class="body-16 mx-auto mt-4 max-w-[760px] text-center text-brand-text">Enter your email address to subscribe to receive updates.</p>
+          <div class="mx-auto mt-6 flex max-w-[620px] rounded-full border border-[#d4d4d4] bg-white px-4 py-2"><input type="email" placeholder="Enter email address" class="w-full border-0 bg-transparent text-[14px] outline-none" /><button class="h-8 w-8 rounded-full bg-brand-red text-white">›</button></div>
+          <div class="mx-auto mt-10 grid max-w-[960px] overflow-hidden rounded-[12px] border border-[#dedede] bg-white lg:grid-cols-[1fr_1.4fr]"><div class="min-h-[220px] bg-brand-red p-5"></div><div class="p-5"><h3 class="text-[24px] font-semibold text-brand-dark">Just a click away</h3><div class="mt-4 grid gap-3"><input type="text" placeholder="Enter your full name" class="h-10 rounded-[8px] border border-[#dfdfdf] px-3 text-[14px] outline-none" /><input type="email" placeholder="Enter your email" class="h-10 rounded-[8px] border border-[#dfdfdf] px-3 text-[14px] outline-none" /><input type="tel" placeholder="Enter your message" class="h-10 rounded-[8px] border border-[#dfdfdf] px-3 text-[14px] outline-none" /></div><div class="button-pill mt-5"><span class="label">Submit your message</span><img src="./images/arrow-right.svg" alt="" class="rounded-arrow" /></div></div></div>
+        </div>
+      </section>
+
+      <section id="support-strip-container" class="container-figma py-8">
+        <div class="grid overflow-hidden rounded-[10px] bg-brand-red text-white md:grid-cols-2 lg:grid-cols-4">
+          <div class="border-white/20 p-5 text-center lg:border-r">
+            <p class="text-[14px] font-semibold leading-5">Fast Delivery</p>
+            <p class="mt-1 text-[11px] leading-4 text-[#ffdede]">Across New Zealand</p>
+          </div>
+          <div class="border-white/20 p-5 text-center lg:border-r">
+            <p class="text-[14px] font-semibold leading-5">Safe Payment</p>
+            <p class="mt-1 text-[11px] leading-4 text-[#ffdede]">100% secure payment</p>
+          </div>
+          <div class="border-white/20 p-5 text-center lg:border-r">
+            <p class="text-[14px] font-semibold leading-5">Free Returns</p>
+            <p class="mt-1 text-[11px] leading-4 text-[#ffdede]">Within 7 days</p>
+          </div>
+          <div class="p-5 text-center">
+            <p class="text-[14px] font-semibold leading-5">Help Center</p>
+            <p class="mt-1 text-[11px] leading-4 text-[#ffdede]">Dedicated support</p>
+          </div>
+        </div>
+      </section>
+
+      <footer id="footer-container" class="pb-8">
+        <div class="container-figma rounded-[12px] border border-[#383838] bg-[#191919] p-4 text-white md:p-6">
+          <div class="grid gap-6 lg:grid-cols-[210px_1fr]">
+            <aside class="rounded-[10px] border border-[#3a3a3a] bg-[#111111] p-4">
+              <div class="flex items-center gap-2 text-[#ff8e91]">
+                <span class="text-[20px]">💬</span>
+                <p class="text-[11px] font-medium leading-4">100% free dedicated electrical support</p>
+              </div>
+              <div class="mt-4 rounded-[6px] bg-white px-2 py-1 text-center text-[11px] font-semibold text-[#202020]">SPARKY SHOP</div>
+              <p class="mt-4 text-[11px] text-[#c7c7c7]">Follow Us Now</p>
+              <p class="mt-1 text-[11px] text-[#8e8e8e]">f  |  in  |  ig</p>
+            </aside>
+
+            <div>
+              <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <div>
+                  <h3 class="text-[13px] font-semibold text-[#ff8e91]">Useful links</h3>
+                  <div class="mt-3 grid gap-2 text-[11px] text-[#d5d5d5]">
+                    <a href="#">About Us</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Faq's</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Service Locations</a>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-[13px] font-semibold text-[#ff8e91]">Information</h3>
+                  <div class="mt-3 grid gap-2 text-[11px] text-[#d5d5d5]">
+                    <a href="#">Shipping Information</a>
+                    <a href="#">Returns policy</a>
+                    <a href="#">Terms &amp; Conditions</a>
+                    <a href="#">Warranty Info</a>
+                    <a href="#">LME sale</a>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-[13px] font-semibold text-[#ff8e91]">Services</h3>
+                  <div class="mt-3 grid gap-2 text-[11px] text-[#d5d5d5]">
+                    <a href="#">Wires</a>
+                    <a href="#">Lighting</a>
+                    <a href="#">Switches</a>
+                    <a href="#">Electrical</a>
+                    <a href="#">Renewable</a>
+                    <a href="#">Electrical</a>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-[13px] font-semibold text-[#ff8e91]">We're just a call away.</h3>
+                  <div class="mt-3 grid gap-2 text-[11px] text-[#d5d5d5]">
+                    <span>+1 (800) 458-9960</span>
+                    <span>sales@sparkyshop.com</span>
+                    <span>Get in touch!</span>
+                    <span>Location</span>
+                    <button class="mt-1 rounded-[6px] border border-[#4f4f4f] px-3 py-2 text-left text-[10px] text-[#f1f1f1]">Secure payment with stripe</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 border-t border-[#313131] pt-4">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <p class="text-[10px] leading-4 text-[#acacac]">All Content, Text, Photos and Videos on this website is © 2026 Sparky Shop.</p>
+              <div class="flex items-center gap-1.5 text-[10px]">
+                <span class="rounded bg-white px-2 py-1 text-[#1f1f1f]">VISA</span>
+                <span class="rounded bg-white px-2 py-1 text-[#1f1f1f]">PayPal</span>
+                <span class="rounded bg-white px-2 py-1 text-[#1f1f1f]">GPay</span>
+                <span class="rounded bg-white px-2 py-1 text-[#1f1f1f]">ApplePay</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <script>
+      (function () {
+        const carousel = document.getElementById("hero-carousel");
+        const dots = Array.from(document.querySelectorAll("#hero-dots .hero-dot"));
+
+        if (!carousel || !dots.length) {
+          return;
+        }
+
+        function setActiveDot(index) {
+          dots.forEach((dot, dotIndex) => {
+            dot.classList.toggle("is-active", dotIndex === index);
+          });
+        }
+
+        function activeIndexFromScroll() {
+          const slideWidth = carousel.clientWidth;
+          if (!slideWidth) return 0;
+          return Math.round(carousel.scrollLeft / slideWidth);
+        }
+
+        carousel.addEventListener("scroll", function () {
+          setActiveDot(activeIndexFromScroll());
+        }, { passive: true });
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", function () {
+            carousel.scrollTo({
+              left: carousel.clientWidth * index,
+              behavior: "smooth",
+            });
+            setActiveDot(index);
+          });
+        });
+
+        const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+        const mobileMenuPanel = document.getElementById("mobile-menu-panel");
+
+        if (mobileMenuToggle && mobileMenuPanel) {
+          mobileMenuToggle.addEventListener("click", function () {
+            const isOpen = mobileMenuPanel.classList.toggle("hidden") === false;
+            mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
